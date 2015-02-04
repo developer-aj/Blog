@@ -7,16 +7,12 @@
 			<h1><a href="">Blog</a></h1>
 		</div>
 
-		<div>
-			<p>published: 04.02.2015, 16:36</p>
-			<h2><a href="">My first post</a></h2>
-			<p>MapReduce is a programming model and software framework first developed by Google (Google’s MapReduce paper submitted in 2004)</p>
-		</div>
-
-		<div>
-			<p>published: 04.02.2015, 16:45</p>
-			<h2><a	href="">My second post</a></h2>
-			<p>Hadoop can work directly with any distributed file system which can be mounted by the underlying OS</p>
-		</div>
+		{% for post in posts %}
+			<div>
+				<p>published: {{ post.published_date }}</p>
+				<h1><a href="">{{ post.title }}</a></h1>
+				<p>{{ post.text|linebreaks }}</p>
+			</div>
+		{% endfor %}
 	</body>
 </html>
