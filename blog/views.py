@@ -7,9 +7,16 @@ def main(request):
 	posts = Post.objects.filter(published_date__isnull=False).order_by('published_date')
 	return render(request, 'blog/index.html', {'posts': posts})
 
+def about(request):
+	return render(request, 'blog/about.html')
+
+def contact(request):
+	return render(request, 'blog/contact.html')
+
+
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
-	return render(request, 'blog/post_detail.html', {'post': post})
+	return render(request, 'blog/post.html', {'post': post})
 
 def post_new(request):
 	if request.method == "POST":
