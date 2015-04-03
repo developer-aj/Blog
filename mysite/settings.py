@@ -83,6 +83,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+MAX_UPLOAD_SIZE=20971520
+CONTENT_TYPES=['image/jpeg','image/png','image/jpg','image/gif']
+
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 

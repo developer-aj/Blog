@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
-
+from mysite.settings import *
 # Create your views here.
 def main(request):
 	posts = Post.objects.filter(published_date__isnull=False).order_by('published_date')
@@ -16,7 +16,7 @@ def contact(request):
 
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
-	return render(request, 'blog/post.html', {'post': post})
+	return render(request, 'blog/post.html', {'post': post, 'media_url':MEDIA_URL})
 
 def post_new(request):
 	if request.method == "POST":
